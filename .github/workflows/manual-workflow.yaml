@@ -20,7 +20,7 @@ jobs:
   on_trigger:
     environment:
       name: ${{ github.event.inputs.environment }}
-    name: "Manual JOB"
+    name: "Manual JOB on ${{ github.event.inputs.environment }}"
     runs-on: ["${{ github.event.inputs.runsOn }}"]
 
     container:

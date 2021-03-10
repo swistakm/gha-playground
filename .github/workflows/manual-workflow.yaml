@@ -1,0 +1,36 @@
+---
+name: On Demand Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'info'
+      environment:
+        description: 'Environment (dev, tst, or stg)'
+        required: true
+        default: 'stg'
+      runsOn:
+        description:
+        required: true
+        default: "ubuntu-latest"
+
+jobs:
+  on_trigger:
+#    environment:
+#      name: ${{ github.event.inputs.environment }}
+    name: "Manual JOB"
+#    runs-on: ["${{ github.event.inputs.environment }}"]
+    runs-on: ["ubuntu-latest"]
+
+    container:
+      image: python:3.9
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Main
+      run: |
+        echo "running in ${{ github.event.inputs.environment }}"
+        echo "running on ${{ github.event.inputs.runsOn }}"
+        echo "running with ${{ github.event.inputs.logLevel }}"

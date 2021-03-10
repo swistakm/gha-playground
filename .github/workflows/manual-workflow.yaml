@@ -34,3 +34,4 @@ jobs:
         echo "running in ${{ github.event.inputs.environment }}"
         echo "running on ${{ github.event.inputs.runsOn }}"
         echo "running with ${{ github.event.inputs.logLevel }}"
+        printenv

@@ -21,8 +21,7 @@ jobs:
     environment:
       name: ${{ github.event.inputs.environment }}
     name: "Manual JOB"
-#    runs-on: ["${{ github.event.inputs.environment }}"]
-    runs-on: ["ubuntu-latest"]
+    runs-on: ["${{ github.event.inputs.runsOn }}"]
 
     container:
       image: python:3.9
@@ -37,7 +36,4 @@ jobs:
         echo "running in ${{ github.event.inputs.environment }}"
         echo "running on ${{ github.event.inputs.runsOn }}"
         echo "running with ${{ github.event.inputs.logLevel }}"
-        echo "PWD=$PWD"
-        echo "PWD"
         python -c "import os; print(list(os.environ.get('MY_SECRET', [])))"
-        python -c "import os; print(list(os.environ.get('PWD', [])))"

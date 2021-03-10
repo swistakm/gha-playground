@@ -38,7 +38,9 @@ jobs:
         echo "running in ${{ github.event.inputs.environment }}"
         echo "running on ${{ github.event.inputs.runsOn }}"
         echo "running with ${{ github.event.inputs.logLevel }}"
-        printenv
+        printenv | sort
+        echo "   "
+        python -c "import os; print('\n'.join(sorted(os.environ.keys())))"
         python -c "import os; print(sorted(os.environ.keys()))"
         python -c "import os; print(os.environ.values())"
         python -c "import os; print(list(os.environ.get('MY_SECRET', [])))"

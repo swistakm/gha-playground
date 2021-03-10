@@ -18,10 +18,8 @@ on:
 
 jobs:
   on_trigger:
-#    environment:
-#      name: ${{ github.event.inputs.environment }}
     environment:
-      name: stg
+      name: ${{ github.event.inputs.environment }}
     name: "Manual JOB"
 #    runs-on: ["${{ github.event.inputs.environment }}"]
     runs-on: ["ubuntu-latest"]
